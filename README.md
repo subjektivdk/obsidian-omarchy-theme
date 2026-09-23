@@ -13,7 +13,7 @@ Omarchy theme, whether Obsidian itself is in light or dark mode.
 
 ```bash
 ln -sf "$PWD/obsidian.css.tpl" ~/.config/omarchy/themed/obsidian.css.tpl
-omarchy theme set "$(omarchy theme current)"   # re-render now
+omarchy theme set <theme-name>   # re-apply current theme to re-render now
 ```
 
 In Obsidian: Settings → Appearance → Themes → **Omarchy**.
