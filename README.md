@@ -21,6 +21,22 @@ In Obsidian: Settings → Appearance → Themes → **Omarchy**.
 `manifest.json` is only written by Omarchy when it's missing, so copy this one
 into `<vault>/.obsidian/themes/Omarchy/` to replace the stock one.
 
+## Font
+
+Omarchy templates only know colors, so the font is synced by a `font-set` hook.
+It writes the CSS snippet `omarchy-font` into every vault whenever you run
+`omarchy font set`.
+
+```bash
+ln -sf "$PWD/hooks/font-set/obsidian-font" ~/.config/omarchy/hooks/font-set.d/obsidian-font
+omarchy hook font-set "$(omarchy font current)"   # write the snippet now
+```
+
+Then enable it once in Obsidian: Settings → Appearance → CSS snippets →
+**omarchy-font**. The snippet wins over the fonts picked in Appearance, and it
+sets interface, text and monospace to the Omarchy font. Turn it off to use your
+own fonts again.
+
 ## Template tokens
 
 `{{ name }}`, `{{ name_rgb }}` and `{{ mix a b N% }}`, where the names are keys
