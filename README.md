@@ -11,6 +11,8 @@ Omarchy theme, whether Obsidian itself is in light or dark mode.
 
 ## Install
 
+Run from the repo root:
+
 ```bash
 ln -sf "$PWD/obsidian.css.tpl" ~/.config/omarchy/themed/obsidian.css.tpl
 omarchy theme set <theme-name>   # re-apply current theme to re-render now
@@ -27,10 +29,17 @@ Omarchy templates only know colors, so the font is synced by a `font-set` hook.
 It writes the CSS snippet `omarchy-font` into every vault whenever you run
 `omarchy font set`.
 
+Run from the repo root:
+
 ```bash
+mkdir -p ~/.config/omarchy/hooks/font-set.d
 ln -sf "$PWD/hooks/font-set/obsidian-font" ~/.config/omarchy/hooks/font-set.d/obsidian-font
 omarchy hook font-set "$(omarchy font current)"   # write the snippet now
 ```
+
+Vaults are found through Obsidian's vault registry (native, Flatpak and Snap
+installs). To uninstall, remove the symlink and delete
+`<vault>/.obsidian/snippets/omarchy-font.css` from each vault.
 
 Then enable it once in Obsidian: Settings → Appearance → CSS snippets →
 **omarchy-font**. The snippet wins over the fonts picked in Appearance, and it
