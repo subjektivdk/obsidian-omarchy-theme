@@ -1,0 +1,21 @@
+# Beskrivelse af Obsidian-temaet til den samlede dokumentation (pixi-docs).
+# Format: Backstage catalog + pixi-udvidelser, se ~/Projects/pixi-docs/docs/manifest-format.md.
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: obsidian-omarchy-theme
+  title: Omarchy-tema til Obsidian
+  description: Skabelon, som Omarchy udfylder med det aktive temas farver ved hvert temaskift og lægger ind i alle vaults som temaet Omarchy.
+  annotations:
+    github.com/project-slug: subjektivdk/obsidian-omarchy-theme
+    pixi.mtj.dk/runs-on: resource:pixi
+    pixi.mtj.dk/help: README.md
+spec:
+  type: theme-template
+  lifecycle: production
+  owner: user:martin
+  system: tema
+  flows:
+    - to: resource:obsidian-vault
+      data: Omarchy-temaets CSS
+      via: ved temaskift
